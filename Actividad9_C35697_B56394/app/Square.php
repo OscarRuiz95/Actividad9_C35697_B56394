@@ -1,14 +1,16 @@
-<?php 
+<?php
+
 namespace App;
 
-class Square implements ShapeInterface{
+class Square implements ShapeInterface
+{
+    public function __construct(
+        public float $width,
+        public float $height
+    ) {}
 
-    public function __construct(public float $width, public float $height) {
-     
-    }
-
-    public function area()
+    public function area(): float
     {
-        $this->width * $this->height;
+        return $this->width * $this->height;
     }
 }
