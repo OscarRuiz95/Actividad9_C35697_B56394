@@ -4,15 +4,14 @@ namespace App;
 
 class AreaCalculator
 {
-
-    public function calculate($shapes)
+    public function calculate(array $shapes): float
     {
+        $areas = [];
 
         foreach ($shapes as $shape) {
-
-            $area[] = $shape->area();
+            $areas[] = $shape->area();
         }
 
-        return array_sum($area);
+        return array_sum($areas);
     }
 }

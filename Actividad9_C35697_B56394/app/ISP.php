@@ -2,59 +2,56 @@
 
 namespace App;
 
-interface ManageableInterface{
-    public function beManaged();
+interface ManageableInterface
+{
+    public function beManaged(): string;
 }
 
 interface WorkableInterface
 {
-    public function work();
- 
+    public function work(): string;
 }
+
 interface SleepableInterface
 {
-    public function sleep();
- 
+    public function sleep(): string;
 }
 
 class HumanWorker implements WorkableInterface, SleepableInterface, ManageableInterface
 {
-
-    public function work()
+    public function work(): string
     {
         return 'Humano Trabajando';
     }
-    public function sleep()
+
+    public function sleep(): string
     {
         return 'Humano Durmiendo';
     }
 
-    public function beManaged()
+    public function beManaged(): string
     {
-        $this->work();
-        $this->sleep();
+        return $this->work() . " | " . $this->sleep();
     }
 }
 
 class Android implements WorkableInterface, ManageableInterface
 {
-    public function work() {
-         return 'Android Trabajando';
-    }
-    
-    public function beManaged()
+    public function work(): string
     {
-         $this->work();
+        return 'Android Trabajando';
     }
 
-    
+    public function beManaged(): string
+    {
+        return $this->work();
+    }
 }
-
 
 class Captain
 {
-    public function manage(ManageableInterface $worker)
+    public function manage(ManageableInterface $worker): string
     {
-        $worker->beManaged();
+        return $worker->beManaged();
     }
 }

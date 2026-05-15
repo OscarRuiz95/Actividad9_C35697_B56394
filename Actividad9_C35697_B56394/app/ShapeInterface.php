@@ -1,6 +1,8 @@
-<?php 
+<?php
+
 namespace App;
 
-interface ShapeInterface{
-    public function area();
+interface ShapeInterface
+{
+    public function area(): float;
 }
