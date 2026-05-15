@@ -1,10 +1,11 @@
-<?php 
+<?php
+
 namespace App\Reporting;
 
-class HtmlOutput implements SalesOutputInterface{
-
-    public function output($sales)
+class HtmlOutput implements SalesOutputInterface
+{
+    public function output(float $sales): string
     {
-         return "<h1>Sales: $sales</h1>";
+        return "<h1>Sales: {$sales}</h1>";
     }
-}
+} 

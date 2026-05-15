@@ -1,6 +1,8 @@
-<?php 
+<?php
+
 namespace App\Reporting;
 
-interface SalesOutputInterface{
-    public function output($sales);
-}
+interface SalesOutputInterface
+{
+    public function output(float $sales): string;
+} 

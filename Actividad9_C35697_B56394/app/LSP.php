@@ -2,30 +2,28 @@
 
 namespace App;
 
-interface LessonRepositoryInterface{
-    public function getAll();
+interface LessonRepositoryInterface
+{
+    public function getAll(): array;
 }
 
 class FileLessonRepository implements LessonRepositoryInterface
 {
-    public function getAll()
+    public function getAll(): array
     {
         return [];
     }
-
 }
 
 class DbLessonRepository implements LessonRepositoryInterface
 {
-    public function getAll()
+    public function getAll(): array
     {
-        return Lesson::all()->toArray(); /// viola el principio de sustitución de liskov
+        return [];
     }
-
 }
 
-function foo(LessonRepositoryInterface $repo)
+function foo(LessonRepositoryInterface $repo): array
 {
-    $data = $repo->getAll();
- 
-}
+    return $repo->getAll();
+} 
